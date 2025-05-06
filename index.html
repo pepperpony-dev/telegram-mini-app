@@ -1,89 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neon Dating App</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <title>Time to Meet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
-      font-family: 'DM Sans', sans-serif;
-      background-color: #0d0c1d;
-      color: #fff;
+      padding: 0;
+      background: linear-gradient(180deg, #2c003e, #0d001a);
+      font-family: 'Poppins', sans-serif;
+      color: white;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
       text-align: center;
     }
-
-    .neon-title {
-      font-size: 2.2rem;
-      color: #ff4dd6;
-      text-shadow: 0 0 10px #ff4dd6, 0 0 20px #ff4dd6;
-      margin-bottom: 1rem;
+    .app-name {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      font-size: 22px;
+      color: #ff4db8;
+      font-weight: 700;
     }
-
-    .subtext {
-      font-size: 1rem;
-      color: #cfcfcf;
-      margin-bottom: 2rem;
+    h1 {
+      font-size: 28px;
+      margin-top: 120px;
+      margin-bottom: 10px;
+      color: #ff4db8;
+      text-shadow: 0 0 10px rgba(255, 77, 184, 0.6);
     }
-
-    .btn {
-      background-color: #ff4dd6;
-      color: white;
-      border: none;
-      border-radius: 30px;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      font-weight: bold;
-      box-shadow: 0 0 10px #ff4dd6, 0 0 20px #ff4dd6;
-      cursor: pointer;
-      transition: transform 0.2s ease;
+    p {
+      font-size: 16px;
+      margin-bottom: 40px;
+      color: #e2d3f9;
     }
-
-    .btn:hover {
-      transform: scale(1.05);
-    }
-
-    .screen {
-      display: none;
-    }
-
-    .screen.active {
+    .buttons {
       display: flex;
+      gap: 20px;
       flex-direction: column;
+      width: 80%;
+      max-width: 300px;
+    }
+    button {
+      padding: 14px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      background-color: #ff4db8;
+      color: white;
+      box-shadow: 0 0 15px rgba(255, 77, 184, 0.5);
+    }
+    .small-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #aaa;
+      max-width: 300px;
     }
   </style>
 </head>
 <body>
-  <div id="welcome" class="screen active">
-    <div class="neon-title">Welcome to NeonMatch</div>
-    <div class="subtext">Find your perfect match with a spark</div>
-    <button class="btn" onclick="showNext('profile')">Start</button>
+  <div class="app-name">Time to Meet</div>
+  <h1>Найди того, кто идеально тебе подойдёт</h1>
+  <p>Выбирай, как войти и начни встречаться с новыми людьми уже сегодня!</p>
+
+  <div class="buttons">
+    <button onclick="loginTelegram()">Войти через Telegram</button>
+    <button onclick="loginEmail()">Войти через Email</button>
+    <button onclick="guestMode()">Продолжить без регистрации</button>
   </div>
 
-  <div id="profile" class="screen">
-    <div class="neon-title">Let's build your profile</div>
-    <div class="subtext">Name, gender, interests, age, location</div>
-    <!-- profile form here -->
-    <button class="btn" onclick="showNext('photo')">Continue</button>
-  </div>
-
-  <div id="photo" class="screen">
-    <div class="neon-title">Upload your photo</div>
-    <div class="subtext">Add 1 selfie and up to 6 total photos</div>
-    <!-- file upload UI -->
-    <button class="btn">Finish</button>
+  <div class="small-note">
+    Продолжая, вы принимаете <a href="#" style="color:#ff4db8;text-decoration:underline">Условия</a> и <a href="#" style="color:#ff4db8;text-decoration:underline">Политику конфиденциальности</a>
   </div>
 
   <script>
-    function showNext(id) {
-      document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
+    function loginTelegram() {
+      alert('Заглушка: авторизация через Telegram');
+    }
+    function loginEmail() {
+      alert('Заглушка: авторизация через Email');
+    }
+    function guestMode() {
+      alert('Вы вошли как гость');
     }
   </script>
 </body>
