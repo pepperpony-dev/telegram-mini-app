@@ -1,16 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Mini App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <link rel="stylesheet" href="style.css" />
+  <title>Neon Dating App</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background-color: #0d0c1d;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .neon-title {
+      font-size: 2.2rem;
+      color: #ff4dd6;
+      text-shadow: 0 0 10px #ff4dd6, 0 0 20px #ff4dd6;
+      margin-bottom: 1rem;
+    }
+
+    .subtext {
+      font-size: 1rem;
+      color: #cfcfcf;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background-color: #ff4dd6;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px #ff4dd6, 0 0 20px #ff4dd6;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .screen {
+      display: none;
+    }
+
+    .screen.active {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
 </head>
 <body>
-  <h1>Василий гей!</h1>
-  <button onclick="sendData()">Отправить данные боту</button>
+  <div id="welcome" class="screen active">
+    <div class="neon-title">Welcome to NeonMatch</div>
+    <div class="subtext">Find your perfect match with a spark</div>
+    <button class="btn" onclick="showNext('profile')">Start</button>
+  </div>
 
-  <script src="script.js"></script>
+  <div id="profile" class="screen">
+    <div class="neon-title">Let's build your profile</div>
+    <div class="subtext">Name, gender, interests, age, location</div>
+    <!-- profile form here -->
+    <button class="btn" onclick="showNext('photo')">Continue</button>
+  </div>
+
+  <div id="photo" class="screen">
+    <div class="neon-title">Upload your photo</div>
+    <div class="subtext">Add 1 selfie and up to 6 total photos</div>
+    <!-- file upload UI -->
+    <button class="btn">Finish</button>
+  </div>
+
+  <script>
+    function showNext(id) {
+      document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>
